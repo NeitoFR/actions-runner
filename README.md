@@ -1,5 +1,13 @@
 I use [ARC - Actions Runner Controller](https://github.com/actions/actions-runner-controller/blob/master/docs/quickstart.md), installed with Helm. Their CRDs makes it quite easy to manage self-hosted runners.
 
+# To install ARC
+
+```sh
+helm upgrade --install --namespace actions-runner-system --create-namespace \
+-f values.yaml \
+--wait actions-runner-controller actions-runner-controller/actions-runner-controller
+```
+
 # Add a runner for a new repo
 
 ```yaml

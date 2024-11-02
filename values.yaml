@@ -1,0 +1,6 @@
+authSecret:
+  create: true
+  github_token: "ghp_XXX"
+image:
+  actionsRunnerImagePullSecrets:
+    - regcred
