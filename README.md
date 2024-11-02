@@ -1,0 +1,32 @@
+I use [ARC - Actions Runner Controller](https://github.com/actions/actions-runner-controller/blob/master/docs/quickstart.md), installed with Helm. Their CRDs makes it quite easy to manage self-hosted runners.
+
+# Add a runner for a new repo
+
+```yaml
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: name of runner
+spec:
+  replicas: 1
+  template:
+    spec:
+      image: runner image
+      repository: repository URI
+```
+
+Exemple for me :
+
+```yaml
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: runner-cacao
+  namespace: actions-runner-system
+spec:
+  replicas: 1
+  template:
+    spec:
+      image: ghcr.io/neito-s-den/actions-runner:latest
+      repository: NeitoFR/association-cacao
+```
